@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+source: https://api-docs.goget.my/
+docs: https://api-docs.goget.my/
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  oauth2_flows: []
+  notes: >-
+    GoGet uses a static account API token passed in the Authorization header
+    using the Rails-style "Token token=<token>" scheme. The token is generated
+    from the Business Account dashboard at https://web.goget.my/api after
+    upgrading to a Business Account. There is no OAuth2 authorization server and
+    no scope surface, so no scopes/ artifact is produced.
+schemes:
+- name: TokenAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  format: 'Token token=<Your_Auth_Token>'
+  description: >-
+    Account-level bearer token. Sent on every request alongside
+    Accept: application/json and Content-Type: application/json headers.
+  source: https://api-docs.goget.my/
+token_management:
+  generate_url: https://web.goget.my/api
+  requires: Business Account
