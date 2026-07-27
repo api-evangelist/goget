@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: searched
+source: https://api-docs.goget.my/
+versioning:
+  scheme: uri-path
+  current: v2
+  versions:
+  - v1
+  - v2
+  notes: >-
+    Endpoints are namespaced under /public/v1 and /public/v2. Newer job
+    operations (list, retrieve, create, update, cancel, fee estimate) live on
+    v2; coverage/time checks, tracking, users, teams and favourites remain on v1.
+  docs: https://api-docs.goget.my/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support is documented.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://gogetmy.instatus.com/
+deprecated_operations: []

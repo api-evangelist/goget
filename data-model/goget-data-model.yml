@@ -1,0 +1,107 @@
+generated: '2026-07-19'
+method: derived
+source: https://api-docs.goget.my/
+notes: >-
+  Entity graph derived from the documented GoGet Delivery API object reference.
+  A Job is the root aggregate; it fans out to Tasks (pickup/dropoff stops) and to
+  GoGetters (the workers matched to it).
+entities:
+- name: Job
+  description: A delivery/dispatch job posted by a business.
+  fields:
+  - id
+  - ride_id
+  - reference
+  - notes
+  - status
+  - simple_status
+  - platform
+  - premium
+  - non_halal
+  - guarantee
+  - credits_used
+  - distance_covered
+  - tracking_id
+  - tracking_url
+  - posted_at
+  - start_at
+  - started_at
+  - completed_at
+  - cancelled_at
+  - expire_at
+  - tasks
+  - gogetters
+  status_values:
+  - open
+  - claimed
+  - approved
+  - in_progress
+  - completed
+  - closed
+  - cancelled
+  - expired
+  simple_status_values:
+  - searching
+  - claimed
+  - in_transit
+  - started
+  - completed
+  - cancelled
+  - expired
+- name: Task
+  description: An individual stop within a job (pickup or dropoff).
+  fields:
+  - id
+  - name
+  - order
+  - status
+  - location
+  - location_lat
+  - location_long
+  - location_notes
+  - location_url
+  - parking
+  - recipient_name
+  - recipient_phone_num
+  - sender_name
+  - sender_email
+  - reference
+  - has_edo
+  - proof_of_item_required
+  - tracking_id
+  - tracking_url
+  - start_at
+  - end_at
+  - ended_at
+  - attachments
+  status_values:
+  - open
+  - completed
+  - failed
+- name: GoGetter
+  description: A verified worker matched to a job; carries live lat/long when in progress.
+  fields:
+  - id
+  - lat
+  - long
+- name: Team
+  description: A team within a business account.
+- name: User
+  description: The authenticated business account; exposes credit balance.
+  fields:
+  - credits
+relationships:
+- from: Job
+  to: Task
+  type: has_many
+  via: tasks
+- from: Job
+  to: GoGetter
+  type: has_many
+  via: gogetters
+- from: Task
+  to: Job
+  type: belongs_to
+- from: User
+  to: Team
+  type: has_many

@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: searched
+source: https://api-docs.goget.my/
+docs: https://api-docs.goget.my/
+format: http-status
+envelope: >-
+  Errors are returned as JSON with the standard HTTP status code. GoGet does not
+  document an RFC 9457 application/problem+json media type; error bodies carry a
+  human-readable message. Codes below are the documented HTTP responses from the
+  API reference.
+problems:
+- status: 400
+  title: Bad Request
+  remediation: The request was malformed or missing required parameters.
+- status: 401
+  title: Unauthorized
+  remediation: Missing or invalid API token. Check the Authorization "Token token=<token>" header.
+- status: 403
+  title: Forbidden
+  remediation: The token is valid but not permitted to perform this action (e.g. account not upgraded to Business).
+- status: 404
+  title: Not Found
+  remediation: The referenced job, team, or resource id does not exist.
+- status: 405
+  title: Method Not Allowed
+  remediation: The HTTP method is not supported for this endpoint.
+- status: 406
+  title: Not Acceptable
+  remediation: Set the Accept header to application/json.
+- status: 500
+  title: Internal Server Error
+  remediation: Transient server error; retry with backoff and contact support if it persists.
+- status: 503
+  title: Service Unavailable
+  remediation: The service is temporarily unavailable; retry with backoff.

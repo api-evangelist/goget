@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: https://api-docs.goget.my/
+spec_type: Webhooks
+description: >-
+  GoGet delivers job lifecycle events by POSTing to a merchant-registered
+  Callback URL. There is no published AsyncAPI document; this is the captured
+  webhook catalog. The callback body contains the full Job object (including the
+  gogetters array with lat/long when available). Register the Callback URL in the
+  Business dashboard alongside the API token at https://web.goget.my/api.
+transport: webhook
+delivery:
+  method: POST
+  target: merchant-registered Callback URL
+  payload: full Job object with updated status and gogetters[] (lat/long when available)
+  content_type: application/json
+events:
+- name: claimed
+  description: A GoGetter has claimed the job.
+- name: approved
+  description: The claim has been approved and the GoGetter is assigned.
+- name: started
+  description: The GoGetter has started the job (en route / picked up).
+- name: cancelled
+  description: The job was cancelled.
+- name: expired
+  description: The job expired without being completed.
+- name: completed
+  description: The job has been completed.
+- name: task_completed
+  description: An individual task (a pickup or dropoff) within the job was completed.
+milestones:
+- GoGetter matched
+- GoGetter en route to pickup
+- Item picked up
+- Delivery completed

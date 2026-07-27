@@ -1,0 +1,53 @@
+# GoGet
+
+> GoGet is a Malaysian on-demand workforce and delivery platform. Its network of verified workers ("GoGetters") powers same-day delivery, dispatch, and blended-workforce staffing for 10,000+ businesses across Klang Valley, Penang, Negeri Sembilan and Johor Bahru. The GoGet Delivery API lets businesses automate on-demand deliveries — create jobs, estimate fees, check coverage, track GoGetters live, and receive job-status webhooks.
+
+## API
+
+- [GoGet Developer Documentation](https://api-docs.goget.my/): Full GoGet Delivery API reference — jobs, fee/coverage/time checks, tracking, teams, credits, and webhooks.
+- API base URL (production): https://web.goget.my/api
+- API base URL (staging): https://staging-api.goget.my/api
+- Authentication: account API token in the `Authorization: Token token=<token>` header. Generate at https://web.goget.my/api (Business Account required).
+
+## Operations
+
+- List jobs: `GET /public/v2/jobs` (30 per page, `page` param)
+- Retrieve job: `GET /public/v2/jobs/{job_id}`
+- Retrieve job by reference: `GET /public/v1/jobs/{reference_id}/reference`
+- Create job: `POST /public/v2/jobs`
+- Update job: `PATCH /public/v2/jobs/{job_id}`
+- Cancel job: `DELETE /public/v2/jobs/{job_id}`
+- Estimate fee: `POST /public/v2/jobs/check_fee`
+- Check coverage: `POST /public/v1/jobs/location_check`
+- Check availability: `POST /public/v1/jobs/time_check`
+- Track GoGetter: `GET /public/v1/jobs/{job_id}/gogetter_locations`
+- Account credits: `GET /public/v1/users/credits`
+- List teams: `GET /public/v1/teams`
+- List favourite GoGetters: `GET /public/v1/favourite_gogetters`
+
+## Webhooks
+
+GoGet POSTs the full Job object to a merchant-registered Callback URL on these events: claimed, approved, started, cancelled, expired, completed, task_completed.
+
+## Repo Artifacts
+
+- Authentication profile: authentication/goget-authentication.yml
+- API conventions: conventions/goget-conventions.yml
+- Error catalog: errors/goget-problem-types.yml
+- Lifecycle & versioning: lifecycle/goget-lifecycle.yml
+- Webhook catalog: asyncapi/goget-jobs-webhooks.yml
+- Data model: data-model/goget-data-model.yml
+- MCP candidate tools: mcp/goget-mcp.yml
+- Domain security probe: security/goget-domain-security.yml
+
+## Docs & Company
+
+- [Company site](https://goget.my)
+- [For Business](https://goget.my/business)
+- [Business pricing](https://goget.my/business/pricing)
+- [Blog](https://goget.my/blog)
+- [Support / Help Center](https://support.goget.my/hc/en-us)
+- [System status](https://gogetmy.instatus.com/)
+- [Sign up / app](https://app.goget.my/)
+- [Terms & Conditions](https://goget.my/terms_conditions)
+- [Privacy Policy](https://goget.my/privacy_policy)

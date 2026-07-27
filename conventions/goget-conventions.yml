@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: searched
+source: https://api-docs.goget.my/
+authentication:
+  style: apiKey
+  header: Authorization
+  format: 'Token token=<token>'
+  see: authentication/goget-authentication.yml
+media_type:
+  request: application/json
+  response: application/json
+  required_headers:
+  - 'Accept: application/json'
+  - 'Content-Type: application/json'
+versioning:
+  style: uri-path
+  current: v2
+  see: lifecycle/goget-lifecycle.yml
+pagination:
+  style: page-number
+  params:
+  - page
+  page_size: 30
+  notes: A single page returns at most 30 jobs; increment the page query param to walk results.
+idempotency:
+  supported: false
+  notes: >-
+    No Idempotency-Key header is documented. A client-supplied `reference` field
+    on a job enables merchant-side tracking and reference-based retrieval
+    (GET /public/v1/jobs/{reference_id}/reference), but it is not a safe-retry
+    idempotency key.
+error_envelope:
+  style: http-status + JSON message
+  problem_json: false
+  see: errors/goget-problem-types.yml
+webhooks:
+  style: callback-url POST
+  see: asyncapi/goget-jobs-webhooks.yml
+rate_limiting:
+  documented: false
+request_tracing:
+  documented: false

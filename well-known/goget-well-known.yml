@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of GoGet hosts
+notes: >-
+  No machine-readable discovery documents were found. web.goget.my returns 200
+  for /.well-known/security.txt but the body is the application login HTML, not a
+  valid RFC 9116 security.txt, so it is recorded as not-found. No WellKnown or
+  SecurityTxt pointer is emitted.
+hosts:
+- host: https://goget.my
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://web.goget.my
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    valid: false
+    note: returns application login HTML, not a valid security.txt
+- host: https://api-docs.goget.my
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /swagger.json
+    status: 404
+- host: https://api.goget.my
+  documents:
+  - path: /.well-known/security.txt
+    status: 404

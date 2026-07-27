@@ -1,0 +1,53 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: https://api-docs.goget.my/
+notes: >-
+  GoGet does not publish a hosted MCP server. This is a candidate tool list
+  derived one-to-one from the documented GoGet Delivery API operations so an MCP
+  server could be forged against them. Auth is an account API token in the
+  Authorization: "Token token=<token>" header.
+server:
+  name: goget
+  transport: http
+  url: null
+tools:
+- name: list_jobs
+  description: List all jobs (30 per page, page query param).
+  source_operation: GET /public/v2/jobs
+- name: get_job
+  description: Retrieve a specific job by id.
+  source_operation: GET /public/v2/jobs/{job_id}
+- name: get_job_by_reference
+  description: Retrieve a job by merchant reference id.
+  source_operation: GET /public/v1/jobs/{reference_id}/reference
+- name: create_job
+  description: Create a new delivery job.
+  source_operation: POST /public/v2/jobs
+- name: update_job
+  description: Update an existing job.
+  source_operation: PATCH /public/v2/jobs/{job_id}
+- name: cancel_job
+  description: Cancel a job.
+  source_operation: DELETE /public/v2/jobs/{job_id}
+- name: check_fee
+  description: Estimate the delivery fee for a job.
+  source_operation: POST /public/v2/jobs/check_fee
+- name: location_check
+  description: Verify a location is within GoGet coverage.
+  source_operation: POST /public/v1/jobs/location_check
+- name: time_check
+  description: Check GoGetter availability for a time window.
+  source_operation: POST /public/v1/jobs/time_check
+- name: track_gogetter
+  description: Get live GoGetter location(s) for a job.
+  source_operation: GET /public/v1/jobs/{job_id}/gogetter_locations
+- name: get_credits
+  description: Check remaining account credits.
+  source_operation: GET /public/v1/users/credits
+- name: list_teams
+  description: List teams on the account.
+  source_operation: GET /public/v1/teams
+- name: list_favourite_gogetters
+  description: List favourite GoGetters.
+  source_operation: GET /public/v1/favourite_gogetters
