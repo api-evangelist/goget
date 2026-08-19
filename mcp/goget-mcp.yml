@@ -2,11 +2,9 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: https://api-docs.goget.my/
-notes: >-
-  GoGet does not publish a hosted MCP server. This is a candidate tool list
-  derived one-to-one from the documented GoGet Delivery API operations so an MCP
-  server could be forged against them. Auth is an account API token in the
-  Authorization: "Token token=<token>" header.
+notes: 'GoGet does not publish a hosted MCP server. This is a candidate tool list derived one-to-one from
+  the documented GoGet Delivery API operations so an MCP server could be forged against them. Auth is
+  an account API token in the Authorization: "Token token=<token>" header.'
 server:
   name: goget
   transport: http
@@ -51,3 +49,9 @@ tools:
 - name: list_favourite_gogetters
   description: List favourite GoGetters.
   source_operation: GET /public/v1/favourite_gogetters
+deployment:
+  mode: none
+  verified: derived
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
