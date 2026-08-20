@@ -42,6 +42,16 @@ tags:
 - Workforce
 - Dispatch
 - Malaysia
+- Webhook
+tags_raw:
+- Company
+- Delivery
+- Logistics
+- On-Demand
+- Gig Economy
+- Workforce
+- Dispatch
+- Malaysia
 - Webhooks
 apis:
 - name: GoGet Delivery API
@@ -53,6 +63,12 @@ apis:
   humanURL: https://api-docs.goget.my/
   baseURL: https://web.goget.my/api
   tags:
+  - Delivery
+  - Dispatch
+  - Logistics
+  - Job
+  - Webhook
+  tags_raw:
   - Delivery
   - Dispatch
   - Logistics
